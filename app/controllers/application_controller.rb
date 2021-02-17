@@ -14,7 +14,7 @@ class ApplicationController < ActionController::API
             if auth_header
                 token = auth_header.split(" ")[1]
                 begin
-                    @user_id = JWT.decode(token, Rails.application.secrets.secret_key_base[0])[0]["user_id"]
+                    @user_id = JWT.decode(token, ENV['SECRET_KEY_BASE'])[0]["user_id"]
                 rescue JWT::DecodeError 
                     nil
                 end

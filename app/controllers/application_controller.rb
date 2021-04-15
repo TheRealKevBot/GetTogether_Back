@@ -20,7 +20,7 @@ class ApplicationController < ActionController::API
                 end
             end
             if(@user_id)
-                @user = user.find(@user_id)
+                @user = User.find(@user_id)
             else 
                 nil
             end
